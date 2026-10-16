@@ -1,0 +1,93 @@
+
+/* ============================================================================
+   BLUEGEN — LEGAL PAGES (Terms & Privacy)
+   Scoped to .legal-page so the shared site typography is never overridden.
+   ========================================================================== */
+
+.legal-page {
+  padding: 62px 0 84px;
+}
+.legal-page > * {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--rw);
+  padding-right: var(--rw);
+}
+
+.legal-page h1 {
+  text-align: center;
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3.8vw, 2.6rem);
+  letter-spacing: -0.03em;
+  color: var(--kesari-dark);
+  margin-bottom: 10px;
+}
+.legal-page > h1::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 1px;
+  margin: 22px auto 0;
+  background: var(--grad-gold-line);
+}
+
+.legal-page h2 {
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid var(--gold-line-soft);
+  font-weight: 700;
+  font-size: 1.16rem;
+  color: var(--kesari-deep);
+  letter-spacing: -0.01em;
+}
+.legal-page h2:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.legal-page p {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.85;
+}
+.legal-page p:first-of-type {
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-mute);
+  font-size: 0.9rem;
+}
+.legal-page em {
+  font-style: italic;
+}
+
+.legal-page ul,
+.legal-page ol {
+  margin: 0 auto 1.1rem;
+  padding-left: calc(var(--rw) + 1.2rem);
+  max-width: 900px;
+}
+.legal-page li {
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  line-height: 1.8;
+  margin-bottom: 0.45rem;
+}
+.legal-page li::marker {
+  color: var(--kesari);
+}
+
+.legal-page > p:last-of-type {
+  text-align: center;
+  color: var(--ink-mute);
+  font-size: 0.86rem;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gold-line-soft);
+}
+
+@media (max-width: 600px) {
+  .legal-page {
+    padding: 44px 0 64px;
+  }
+}

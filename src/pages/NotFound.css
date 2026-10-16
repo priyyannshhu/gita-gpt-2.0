@@ -1,0 +1,37 @@
+/* ============================================================================
+   BLUEGEN — 404 / EMPTY STATE
+   ========================================================================== */
+
+.notfound {
+  position: relative;
+  overflow: hidden;
+  padding: 96px 0 110px;
+}
+.notfound__mandala {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--kesari-deep);
+}
+.notfound__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+.notfound__om {
+  color: var(--kesari);
+  margin-bottom: 10px;
+  filter: drop-shadow(0 14px 26px rgba(184, 66, 15, 0.35));
+}
+.notfound__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 22px;
+}

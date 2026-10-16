@@ -1,0 +1,499 @@
+/* ============================================================================
+   BLUEGEN — HOMEPAGE
+   Divine saffron hero → shloka band → three paths → verse of the day →
+   the 18 yogas → closing invitation. Alternating light and dark sections.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------- HERO */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 74px 0 58px;
+  min-height: calc(100vh - var(--header-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero__mandala {
+  position: absolute;
+  top: 38%;
+  left: 4%;
+  color: #fff0c9;
+}
+.hero__mandala--sm {
+  top: 8%;
+  left: auto;
+  right: -80px;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 46px;
+}
+
+.hero__badge {
+  margin-bottom: 22px;
+}
+
+.hero__title {
+  font-size: clamp(2.3rem, 5.4vw, 4.05rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--on-dark);
+  margin-bottom: 20px;
+  text-wrap: balance;
+}
+
+.hero__lead {
+  font-size: clamp(1rem, 1.35vw, 1.16rem);
+  color: var(--on-dark-soft);
+  max-width: 54ch;
+  line-height: 1.78;
+  margin-bottom: 30px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn-ask--hero {
+  font-size: 1.05rem;
+  padding: 17px 38px 17px 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn-ask__om {
+  color: #fff9ef;
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+  font-size: 0.88rem;
+  color: var(--on-dark-mute);
+  letter-spacing: 0.02em;
+}
+.hero__meta strong {
+  color: var(--gold-bright);
+  font-weight: 700;
+}
+.hero__meta-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 240, 201, 0.55);
+}
+
+/* ----------------------------------------------------------------- HERO ART */
+.hero__art {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 440px;
+}
+.hero__art-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s var(--ease);
+  will-change: transform;
+}
+.hero__glow {
+  position: absolute;
+  width: 470px;
+  height: 470px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 226, 158, 0.55) 0%,
+    rgba(255, 186, 88, 0.24) 46%,
+    transparent 72%
+  );
+  filter: blur(6px);
+  animation: glow-pulse 8s ease-in-out infinite;
+}
+.hero__krishna {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 34px 48px rgba(94, 30, 4, 0.5));
+}
+.hero__flute {
+  position: absolute;
+  bottom: 12px;
+  left: -18px;
+  color: rgba(255, 240, 201, 0.75);
+  z-index: 3;
+}
+.hero__feather {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  z-index: 3;
+  filter: drop-shadow(0 18px 26px rgba(60, 20, 0, 0.45));
+}
+.hero__lotus {
+  position: absolute;
+  bottom: -6px;
+  right: 46px;
+  color: rgba(255, 240, 201, 0.85);
+  z-index: 1;
+}
+
+.hero__base {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 42px;
+  color: rgba(255, 240, 201, 0.8);
+}
+.hero__base-line {
+  flex: 0 1 260px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 240, 201, 0.7),
+    transparent
+  );
+}
+
+/* --------------------------------------------------------------- SHLOKA BAND */
+.shloka-band {
+  padding: 84px 0;
+}
+.shloka-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+  gap: 24px;
+  margin-top: 44px;
+}
+.shloka-card {
+  position: relative;
+  text-align: center;
+  padding: 40px 26px 30px;
+}
+.shloka-card__om {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-deva);
+  font-size: 1.05rem;
+  color: var(--gold);
+  opacity: 0.8;
+}
+.shloka-card__sanskrit {
+  font-family: var(--font-deva);
+  font-size: 1.42rem;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--kesari-dark);
+  margin: 14px 0 16px;
+}
+.shloka-card__rule {
+  display: block;
+  width: 54px;
+  height: 1px;
+  margin: 0 auto 16px;
+  background: var(--grad-gold-line);
+}
+.shloka-card__english {
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-bottom: 14px;
+}
+.shloka-card__ref {
+  margin: 0;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ------------------------------------------------------------------- PATHS */
+.paths__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 26px;
+  margin-top: 46px;
+}
+.path-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 36px 30px 30px;
+}
+.path-card__icon {
+  color: var(--kesari);
+  margin-bottom: 18px;
+}
+.path-card__eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.path-card__title {
+  font-size: 1.32rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.path-card__body {
+  font-size: 0.96rem;
+  margin-bottom: 22px;
+  flex: 1;
+}
+.path-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 600;
+  font-size: 0.94rem;
+  color: var(--kesari-deep);
+}
+.path-card__cta span {
+  transition: transform 0.3s var(--ease);
+}
+.path-card__cta:hover span {
+  transform: translateX(5px);
+}
+
+/* ------------------------------------------------------ VERSE OF THE DAY BAND */
+.verse-day {
+  position: relative;
+  padding: 88px 0;
+  overflow: hidden;
+}
+.verse-day__mandala {
+  position: absolute;
+  top: 50%;
+  right: -120px;
+  transform: translateY(-50%);
+  color: #ffe0a0;
+}
+.verse-day__inner {
+  position: relative;
+  z-index: 2;
+}
+.verse-day__card {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 46px 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 240, 201, 0.42);
+  background: linear-gradient(
+    150deg,
+    rgba(255, 252, 246, 0.14) 0%,
+    rgba(255, 240, 201, 0.1) 100%
+  );
+  backdrop-filter: blur(4px);
+  box-shadow: 0 40px 80px -46px rgba(60, 20, 0, 0.8);
+}
+.verse-day__ref {
+  margin: 0 0 18px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+.verse-day__quote {
+  margin: 0;
+  font-size: clamp(1.12rem, 2.1vw, 1.5rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.72;
+  color: #fff9ef;
+}
+.verse-day__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+/* -------------------------------------------------------- CHAPTERS PREVIEW */
+.chapters-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: 14px;
+  margin-top: 46px;
+}
+.chapter-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  padding: 20px 20px 22px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gold-line-soft);
+  background: linear-gradient(180deg, #ffffff 0%, #fff8ec 100%);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease),
+    border-color 0.35s var(--ease);
+}
+.chapter-tile:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-gold);
+}
+.chapter-tile__num {
+  font-family: var(--font-deva);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+.chapter-tile__name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.45;
+}
+.chapter-tile__om {
+  position: absolute;
+  right: 12px;
+  bottom: -14px;
+  font-family: var(--font-deva);
+  font-size: 3.6rem;
+  color: var(--kesari);
+  opacity: 0.07;
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+.chapter-tile:hover .chapter-tile__om {
+  opacity: 0.16;
+  transform: translateY(-4px);
+}
+.chapters-preview__more {
+  margin-top: 40px;
+}
+
+/* ----------------------------------------------------------------- CLOSING */
+.closing {
+  position: relative;
+  padding: 92px 0;
+  overflow: hidden;
+}
+.closing__inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.closing__feather {
+  margin-bottom: 20px;
+  opacity: 0.92;
+  filter: drop-shadow(0 20px 30px rgba(60, 20, 0, 0.45));
+}
+.closing__title {
+  font-size: clamp(1.9rem, 3.8vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--on-dark);
+  margin-bottom: 16px;
+}
+.closing__lead {
+  max-width: 60ch;
+  margin: 0 auto 30px;
+  color: var(--on-dark-soft);
+  font-size: 1.03rem;
+}
+.closing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* ------------------------------------------------------------- RESPONSIVE */
+@media (max-width: 1020px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .hero__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero__actions,
+  .hero__meta {
+    justify-content: center;
+  }
+  .hero__lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero__art {
+    order: -1;
+    min-height: 360px;
+  }
+  .hero__art-inner {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 0;
+    padding: 44px 0 40px;
+  }
+  .hero__krishna {
+    height: 320px;
+  }
+  .hero__glow {
+    width: 340px;
+    height: 340px;
+  }
+  .hero__feather {
+    height: 150px;
+    right: -6px;
+  }
+  .hero__flute {
+    width: 170px;
+    left: -26px;
+  }
+  .hero__meta {
+    font-size: 0.8rem;
+    gap: 10px;
+  }
+  .verse-day__card {
+    padding: 34px 22px;
+  }
+  .chapters-preview__grid {
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  }
+  .hero__base {
+    display: none;
+  }
+}

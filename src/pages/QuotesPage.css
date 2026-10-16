@@ -1,0 +1,139 @@
+/* ============================================================================
+   BLUEGEN — QUOTES (elegant cream cards, saffron headings, golden borders)
+   ========================================================================== */
+
+.quotes-page {
+  width: 100%;
+}
+
+/* -------------------------------------------------------------------- HERO */
+.quotes-hero {
+  position: relative;
+  padding: 58px 0 62px;
+  overflow: hidden;
+}
+.quotes-hero__mandala {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff0c9;
+}
+.quotes-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.quotes-hero__om {
+  color: var(--gold-bright);
+  margin-bottom: 16px;
+  filter: drop-shadow(0 14px 26px rgba(60, 20, 0, 0.5));
+}
+.quotes-hero h1 {
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--on-dark);
+  margin-bottom: 12px;
+}
+.quotes-hero p {
+  max-width: 60ch;
+  margin: 0 auto;
+  color: var(--on-dark-soft);
+}
+
+/* -------------------------------------------------------------------- BODY */
+.quotes-body {
+  padding: 62px 0 84px;
+}
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.quote-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  padding: 34px 30px 30px;
+  border-radius: var(--radius);
+  border: 1px solid var(--gold-line);
+  background: linear-gradient(180deg, #ffffff 0%, #fff6e7 100%);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease),
+    border-color 0.4s var(--ease);
+}
+.quote-frame::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid var(--gold-line-soft);
+  border-radius: calc(var(--radius) - 7px);
+  pointer-events: none;
+}
+.quote-frame:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-card);
+}
+.quote-frame > * {
+  position: relative;
+  z-index: 1;
+}
+
+.quote-frame__om {
+  font-family: var(--font-deva);
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--gold);
+}
+.quote-frame__en {
+  margin: 0;
+  font-size: 1.04rem;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--ink);
+  flex: 1;
+}
+.quote-frame__rule {
+  display: block;
+  width: 56px;
+  height: 1px;
+  background: var(--grad-gold-line);
+}
+.quote-frame__hi {
+  margin: 0;
+  font-family: var(--font-deva);
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--kesari-dark);
+}
+
+.quotes-count {
+  text-align: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 34px;
+}
+
+@media (max-width: 640px) {
+  .quotes-hero {
+    padding: 40px 0 46px;
+  }
+  .quotes-body {
+    padding: 44px 0 64px;
+  }
+  .quote-frame {
+    padding: 28px 22px 26px;
+  }
+}

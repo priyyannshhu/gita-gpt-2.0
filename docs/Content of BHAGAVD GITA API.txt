@@ -1,0 +1,12 @@
+Content of BHAGAVD GITA API:
+
+{
+  "chapter": 2,
+  "verse": 47,
+  "text": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन...",
+  "translation": {
+    "english": "You have the right to perform your prescribed duties, but you are not entitled to the fruits of your actions...",
+    "hindi": "तुम्हारा कर्म करने में ही अधिकार है, फलों में कभी नहीं..."
+  },
+  "commentary": "This verse emphasizes performing one's duty without attachment to the results..."
+}

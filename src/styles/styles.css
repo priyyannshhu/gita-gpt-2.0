@@ -1,0 +1,890 @@
+/* ============================================================================
+   BLUEGEN — DIVINE SAFFRON DESIGN SYSTEM
+   A premium, Hindu-inspired visual language for the Bhagavad Gita platform.
+
+   Palette locked to: Kesari / Saffron · Orange · Golden Yellow · White · Cream
+   Typography: Poppins (400/500/600/700/800) + Noto Sans Devanagari (shlokas)
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- 1. TOKENS */
+:root {
+  /* --- Brand: kesari, saffron, orange, golden yellow --- */
+  --kesari: #f4691f;
+  --kesari-deep: #d8541a;
+  --kesari-dark: #a63a0b;
+  --saffron: #f79420;
+  --orange-warm: #ff8a2b;
+  --gold: #e0a82e;
+  --gold-bright: #f6c85f;
+  --gold-soft: #fbe6b4;
+  --gold-line: rgba(211, 154, 40, 0.42);
+  --gold-line-soft: rgba(211, 154, 40, 0.22);
+
+  /* --- Surfaces: white, cream, ivory --- */
+  --white: #ffffff;
+  --ivory: #fffcf6;
+  --cream: #fff6e7;
+  --cream-deep: #fdf0da;
+  --sand: #fbeacb;
+
+  /* --- Ink --- */
+  --ink: #3d1f0b;
+  --ink-soft: #6b4227;
+  --ink-mute: #8b6647;
+  --on-dark: #fff9ef;
+  --on-dark-soft: rgba(255, 249, 239, 0.84);
+  --on-dark-mute: rgba(255, 249, 239, 0.66);
+
+  /* --- Gradients --- */
+  --grad-saffron: linear-gradient(
+    135deg,
+    #7e2b08 0%,
+    #b8420f 30%,
+    #e1771e 64%,
+    #f2a93b 100%
+  );
+  --grad-hero: radial-gradient(
+      1100px 620px at 80% 14%,
+      rgba(255, 216, 142, 0.6) 0%,
+      rgba(255, 168, 66, 0.22) 44%,
+      transparent 74%
+    ),
+    linear-gradient(158deg, #8c3109 0%, #c24a10 36%, #e8801f 70%, #f5b44a 100%);
+  --grad-gold: linear-gradient(
+    135deg,
+    #b9821f 0%,
+    #e0a82e 38%,
+    #f6c85f 68%,
+    #fff0c9 100%
+  );
+  --grad-gold-line: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--gold) 16%,
+    #fff0c9 50%,
+    var(--gold) 84%,
+    transparent 100%
+  );
+  --grad-cream: linear-gradient(180deg, #fffdf8 0%, #fff6e7 52%, #fbeacb 100%);
+
+  /* --- Decorative first-party SVG patterns (pure geometry) --- */
+  --p-rings: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%23b8420f' stroke-opacity='.30'%3E%3Ccircle cx='70' cy='70' r='12'/%3E%3Ccircle cx='70' cy='70' r='30'/%3E%3Ccircle cx='70' cy='70' r='48' stroke-dasharray='3 9'/%3E%3C/g%3E%3C/svg%3E");
+  --p-dots: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Ccircle cx='3' cy='3' r='1.5' fill='%23e0a82e' fill-opacity='.55'/%3E%3C/svg%3E");
+  --p-lattice: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='46' viewBox='0 0 46 46'%3E%3Cg stroke='%23f6c85f' stroke-opacity='.26' stroke-width='1' fill='none'%3E%3Cpath d='M0 46 46 0'/%3E%3Cpath d='M-12 12 12 -12'/%3E%3Cpath d='M34 58 58 34'/%3E%3C/g%3E%3C/svg%3E");
+  --p-arches: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='86' height='86' viewBox='0 0 86 86'%3E%3Cpath d='M11 76 V38 A32 32 0 0 1 75 38 V76' fill='none' stroke='%23f6c85f' stroke-opacity='.20' stroke-width='1.2'/%3E%3C/svg%3E");
+  --p-petals: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23c24a10' stroke-opacity='.22'%3E%3Cpath d='M80 18 C102 52 102 88 80 122 C58 88 58 52 80 18 Z'/%3E%3Cpath d='M18 80 C52 58 88 58 122 80 C88 102 52 102 18 80 Z'/%3E%3Ccircle cx='80' cy='80' r='7'/%3E%3C/g%3E%3C/svg%3E");
+
+  /* --- Motion --- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur: 0.75s;
+
+  /* --- Type --- */
+  --font-sans: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-deva: "Noto Sans Devanagari", "Poppins", "Segoe UI", serif;
+
+  /* --- Layout --- */
+  --maxw: 1180px;
+  --rw: 26px;
+  --radius-sm: 14px;
+  --radius: 22px;
+  --radius-lg: 34px;
+  --shadow-soft: 0 16px 40px -24px rgba(120, 52, 10, 0.42);
+  --shadow-card: 0 30px 70px -34px rgba(120, 52, 10, 0.5);
+  --shadow-gold: 0 26px 60px -30px rgba(184, 66, 15, 0.55);
+  --header-h: 76px;
+}
+
+/* ------------------------------------------------------------------ 2. BASE */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background-color: var(--cream);
+  background-image: radial-gradient(
+      1200px 520px at 88% -6%,
+      rgba(247, 148, 32, 0.14),
+      transparent 70%
+    ),
+    radial-gradient(900px 520px at 2% 104%, rgba(224, 168, 46, 0.16), transparent 72%),
+    var(--p-rings);
+  background-size: auto, auto, 140px 140px;
+  background-attachment: fixed, fixed, fixed;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  margin: 0 0 0.6rem;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-weight: 800;
+}
+h2 {
+  font-weight: 700;
+}
+h3 {
+  font-weight: 600;
+}
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+}
+
+a {
+  color: var(--kesari-deep);
+  text-decoration: none;
+  transition: color 0.25s var(--ease);
+}
+a:hover {
+  color: var(--kesari);
+}
+
+strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+li {
+  margin-bottom: 0.4rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(211, 154, 40, 0.9);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+::selection {
+  background: rgba(244, 105, 31, 0.24);
+  color: var(--ink);
+}
+
+/* Scrollbar — warm golden */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--saffron), var(--kesari-deep));
+  border-radius: 20px;
+  border: 3px solid var(--cream-deep);
+}
+
+/* -------------------------------------------------- 3. BACKGROUND TREATMENTS
+   Six reusable, layered treatments. Never a flat orange fill.               */
+
+/* 1 — Divine Saffron: warm kesari gradient with golden illumination */
+.bg-divine-saffron {
+  position: relative;
+  isolation: isolate;
+  color: var(--on-dark);
+  background-image: radial-gradient(
+      780px 420px at 76% 6%,
+      rgba(255, 214, 136, 0.5),
+      transparent 72%
+    ),
+    radial-gradient(620px 380px at 8% 96%, rgba(255, 168, 66, 0.32), transparent 74%),
+    var(--grad-saffron);
+  overflow: hidden;
+}
+
+/* 2 — Krishna's Wisdom: cream surfaces with faint sacred geometry */
+.bg-krishnas-wisdom {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--cream);
+  background-image: radial-gradient(
+      760px 420px at 92% -4%,
+      rgba(247, 148, 32, 0.14),
+      transparent 70%
+    ),
+    radial-gradient(640px 420px at 0% 100%, rgba(224, 168, 46, 0.16), transparent 72%),
+    var(--p-rings);
+  background-size: auto, auto, 140px 140px;
+}
+
+/* 3 — Golden Mandala: low-opacity mandala field behind a hero */
+.bg-golden-mandala {
+  position: relative;
+  isolation: isolate;
+  background-image: radial-gradient(
+      900px 560px at 50% 42%,
+      rgba(255, 240, 201, 0.75),
+      transparent 72%
+    ),
+    radial-gradient(620px 420px at 10% 6%, rgba(247, 148, 32, 0.2), transparent 74%),
+    radial-gradient(560px 420px at 94% 92%, rgba(224, 168, 46, 0.22), transparent 74%),
+    var(--grad-cream);
+  overflow: hidden;
+}
+
+/* 4 — Sacred Reading: clean ivory surface with saffron dividers */
+.bg-sacred-reading {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--ivory);
+  background-image: linear-gradient(
+      180deg,
+      rgba(244, 105, 31, 0.06) 0,
+      rgba(244, 105, 31, 0.06) 1px,
+      transparent 1px
+    ),
+    radial-gradient(720px 380px at 50% 0%, rgba(255, 246, 231, 0.9), transparent 70%);
+  background-size: auto, auto;
+}
+
+/* 5 — Flute and Peacock: sand base with petal and dot texture */
+.bg-flute-peacock {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--sand);
+  background-image: radial-gradient(
+      620px 400px at 88% 4%,
+      rgba(255, 255, 255, 0.85),
+      transparent 72%
+    ),
+    var(--p-petals), var(--p-dots);
+  background-size: auto, 160px 160px, 26px 26px;
+}
+
+/* 6 — Temple Gold: deep gradient with ornamental lattice + gold framing */
+.bg-temple-gold {
+  position: relative;
+  isolation: isolate;
+  color: var(--on-dark);
+  background-image: radial-gradient(
+      700px 420px at 50% -10%,
+      rgba(255, 214, 136, 0.42),
+      transparent 74%
+    ),
+    var(--p-arches),
+    linear-gradient(140deg, #8c3109 0%, #b8420f 46%, #e1771e 100%);
+  background-size: auto, 86px 86px, auto;
+  overflow: hidden;
+}
+
+/* Lattice overlay for the two dark treatments */
+.bg-divine-saffron::after,
+.bg-temple-gold::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--p-lattice);
+  background-size: 46px 46px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bg-divine-saffron > *,
+.bg-temple-gold > *,
+.bg-golden-mandala > *,
+.bg-krishnas-wisdom > *,
+.bg-flute-peacock > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------- 4. LAYOUT HELPERS */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--rw);
+}
+
+.section {
+  padding: 84px 0;
+}
+.section--tight {
+  padding: 60px 0;
+}
+.section--flush-top {
+  padding-top: 0;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+.center {
+  text-align: center;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.measure {
+  max-width: 68ch;
+}
+.measure-tight {
+  max-width: 52ch;
+}
+
+/* --------------------------------------------------------- 5. TYPO UTILITIES */
+.devanagari,
+.sanskrit {
+  font-family: var(--font-deva);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--kesari-deep);
+  margin-bottom: 18px;
+}
+.eyebrow::before,
+.eyebrow--both::after {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: var(--grad-gold-line);
+}
+.on-dark .eyebrow,
+.bg-divine-saffron .eyebrow,
+.bg-temple-gold .eyebrow {
+  color: var(--gold-soft);
+}
+
+.section-title {
+  font-size: clamp(1.85rem, 3.6vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 14px;
+}
+
+.section-sub {
+  font-size: 1.02rem;
+  color: var(--ink-mute);
+  max-width: 62ch;
+}
+
+.on-dark h1,
+.on-dark h2,
+.on-dark h3,
+.on-dark h4,
+.bg-divine-saffron h1,
+.bg-divine-saffron h2,
+.bg-divine-saffron h3,
+.bg-temple-gold h1,
+.bg-temple-gold h2,
+.bg-temple-gold h3 {
+  color: var(--on-dark);
+}
+.on-dark p,
+.bg-divine-saffron p,
+.bg-temple-gold p {
+  color: var(--on-dark-soft);
+}
+
+.text-gold {
+  color: var(--gold);
+}
+.text-kesari {
+  color: var(--kesari-deep);
+}
+.gradient-text {
+  background: linear-gradient(100deg, #8c3109 0%, #d8541a 34%, #e0a82e 72%, #f6c85f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.on-dark .gradient-text,
+.bg-divine-saffron .gradient-text {
+  background: linear-gradient(100deg, #fff0c9 0%, #f6c85f 46%, #fff9ef 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ------------------------------------------------------------- 6. ORNAMENTS */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 26px auto;
+  max-width: 420px;
+  color: var(--gold);
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--grad-gold-line);
+}
+.on-dark .ornament-divider,
+.bg-divine-saffron .ornament-divider {
+  color: var(--gold-bright);
+}
+
+.divider-gold {
+  height: 1px;
+  border: 0;
+  margin: 40px auto;
+  max-width: 640px;
+  background: var(--grad-gold-line);
+}
+
+/* ------------------------------------------------------------ 7. BUTTONS */
+.btn {
+  --btn-bg: var(--grad-saffron);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.97rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease),
+    background-color 0.3s var(--ease), color 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, #f79420 0%, #f4691f 52%, #d8541a 100%);
+  color: #fff;
+  box-shadow: 0 18px 38px -18px rgba(214, 78, 20, 0.75),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.btn--primary:hover {
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 26px 48px -18px rgba(214, 78, 20, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.btn--gold {
+  background: var(--grad-gold);
+  color: #4a2410;
+  box-shadow: 0 18px 38px -20px rgba(184, 66, 15, 0.6);
+}
+.btn--gold:hover {
+  color: #3d1f0b;
+  transform: translateY(-3px);
+}
+
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--kesari-deep);
+  border-color: var(--gold-line);
+  backdrop-filter: blur(6px);
+}
+.btn--ghost:hover {
+  background: #fff;
+  color: var(--kesari);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.btn--outline-light {
+  background: rgba(255, 249, 239, 0.1);
+  color: var(--on-dark);
+  border-color: rgba(255, 240, 201, 0.55);
+}
+.btn--outline-light:hover {
+  background: rgba(255, 249, 239, 0.2);
+  color: #fff;
+  border-color: var(--gold-bright);
+  transform: translateY(-3px);
+}
+
+.btn--sm {
+  padding: 10px 20px;
+  font-size: 0.86rem;
+}
+.btn--lg {
+  padding: 17px 38px;
+  font-size: 1.03rem;
+}
+
+/* Sculpted "ask" button — the brand signature CTA */
+.btn-ask {
+  position: relative;
+  padding: 15px 34px 15px 30px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 240, 201, 0.6);
+  background: linear-gradient(135deg, #f2a93b 0%, #f4691f 48%, #c24a10 100%);
+  color: #fff9ef;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 20px 42px -20px rgba(150, 55, 8, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease),
+    filter 0.3s var(--ease);
+}
+.btn-ask:hover {
+  transform: translateY(-3px);
+  filter: saturate(1.08);
+  box-shadow: 0 28px 52px -20px rgba(150, 55, 8, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.btn-ask:active {
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------ 8. SURFACES */
+.card {
+  position: relative;
+  border-radius: var(--radius);
+  padding: 30px 28px;
+  background: var(--grad-cream);
+  border: 1px solid var(--gold-line-soft);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease),
+    border-color 0.4s var(--ease);
+}
+.card--white {
+  background: var(--white);
+}
+.card--temple {
+  background: linear-gradient(180deg, #fffdf8 0%, #fff6e7 100%);
+  border: 1px solid var(--gold-line);
+  box-shadow: var(--shadow-card);
+}
+.card--temple::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--gold-line-soft);
+  border-radius: calc(var(--radius) - 8px);
+  pointer-events: none;
+}
+.card--temple::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: var(--p-arches);
+  background-size: 86px 86px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.card--temple > * {
+  position: relative;
+  z-index: 1;
+}
+.card--dark {
+  background: linear-gradient(
+    150deg,
+    rgba(124, 42, 8, 0.94) 0%,
+    rgba(184, 66, 15, 0.94) 56%,
+    rgba(226, 122, 30, 0.94) 100%
+  );
+  border: 1px solid rgba(255, 240, 201, 0.4);
+  color: var(--on-dark);
+}
+.card--dark h3,
+.card--dark h2,
+.card--dark h4 {
+  color: var(--on-dark);
+}
+.card--dark p {
+  color: var(--on-dark-soft);
+}
+
+.card-lift:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--gold);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255, 246, 231, 0.85);
+  border: 1px solid var(--gold-line);
+  color: var(--kesari-deep);
+}
+.badge--dark {
+  background: rgba(61, 31, 11, 0.28);
+  border-color: rgba(255, 240, 201, 0.5);
+  color: var(--gold-soft);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--gold-line);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--kesari-deep);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease),
+    background-color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.chip:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  border-color: var(--gold);
+  box-shadow: 0 14px 26px -18px rgba(184, 66, 15, 0.6);
+}
+
+.field,
+.text-input {
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gold-line);
+  background: var(--white);
+  color: var(--ink);
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.field:focus,
+.text-input:focus {
+  outline: none;
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 4px rgba(247, 148, 32, 0.18);
+}
+
+/* ----------------------------------------------------------- 9. ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+@keyframes floaty-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-22px) rotate(6deg);
+  }
+}
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -140% 0;
+  }
+  100% {
+    background-position: 240% 0;
+  }
+}
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.float {
+  animation: floaty 6s ease-in-out infinite;
+}
+.float--slow {
+  animation: floaty-slow 11s ease-in-out infinite;
+}
+.spin-slow {
+  animation: spin-slow 90s linear infinite;
+}
+.glow {
+  animation: glow-pulse 7s ease-in-out infinite;
+}
+.rise-in {
+  animation: rise-in 0.9s var(--ease) both;
+}
+
+.page-enter {
+  animation: rise-in 0.6s var(--ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .float,
+  .float--slow,
+  .spin-slow,
+  .glow,
+  .rise-in,
+  .page-enter {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* --------------------------------------------------------- 10. PAGE WRAPPER */
+.page {
+  flex: 1 0 auto;
+  width: 100%;
+  padding-top: var(--header-h);
+}
+
+.page-shell {
+  min-height: 60vh;
+}
+
+/* Section headings shared across inner pages */
+.page-hero {
+  padding: 68px 0 52px;
+  text-align: center;
+}
+.page-hero h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.1rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.page-hero p {
+  margin: 0 auto;
+  max-width: 62ch;
+  font-size: 1.03rem;
+}
+
+/* Decorative layers must never sit on top of interactive content */
+[aria-hidden="true"].deco,
+.deco {
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --rw: 20px;
+    --header-h: 68px;
+  }
+  .section {
+    padding: 58px 0;
+  }
+  .section--tight {
+    padding: 42px 0;
+  }
+}
+
+@media (max-width: 560px) {
+  body {
+    font-size: 0.97rem;
+  }
+  .card {
+    padding: 24px 20px;
+  }
+}
